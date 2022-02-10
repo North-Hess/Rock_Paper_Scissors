@@ -42,14 +42,20 @@ while check:
     # check if the user wants to play again
     # using .upper so that the choice isn't case sensitive
     play_again = input("Play again?(Y/N)\n").upper()
-    print(play_again != "Y")
+    continue_check = True
+    if play_again == "Y" or play_again == "N":
+        pass
+    else:
     # not equal to correct choice then loops through till proper choicen entered
-    while play_again != "Y" or "N":
-        play_again = input("Sorry, wrong selection entered. Please enter either a Y for yes, or N for no.\n").upper()
+        continue_check = False 
+        while continue_check == False:
+            play_again = input("Sorry, wrong selection entered. Please enter either a Y for yes, or N for no.\n").upper()
+            if play_again == "Y" or play_again == "N":
+                continue_check = True
     if play_again == "Y":
         check = True
     elif play_again == "N":
         check = False
 # print thank you message and win count
 print(f"You won a total of {win_count} times!\n\
-    Thank you for playing!")
+Thank you for playing!")
