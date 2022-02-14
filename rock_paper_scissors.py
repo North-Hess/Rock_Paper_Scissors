@@ -3,12 +3,23 @@ import time
 check = True
 win_count = 0
 pause_value = 1
+selection_list = ["ROCK", "PAPER", "SCISSORS"]
 # include a win count for some fun
 wmsg = "Welcome to my rock paper scissors game!"
 print(wmsg)
 time.sleep(pause_value)
 while check:
     selection = input("Please enter your selection:\n").upper()
+    selection_check = True
+    if selection in selection_list:
+        pass
+    else:
+    # not equal to correct choice then loops through till proper choicen entered
+        selection_check = False 
+        while selection_check == False:
+            selection = input("Sorry, wrong selection entered. Please enter either rock, paper, or scissors (not case sensitive).\n").upper()
+            if selection in selection_list:
+                selection_check = True
     competition = random.randint(1,3)
     if competition == 1:
         competition = "ROCK"
