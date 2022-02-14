@@ -1,9 +1,12 @@
 import random
+import time
 check = True
-win_count = 0 
+win_count = 0
+pause_value = 1
 # include a win count for some fun
 wmsg = "Welcome to my rock paper scissors game!"
 print(wmsg)
+time.sleep(pause_value)
 while check:
     selection = input("Please enter your selection:\n").upper()
     competition = random.randint(1,3)
@@ -30,7 +33,9 @@ while check:
         result = 2
     # display the choices of the computer and player
     print(f"You threw {selection.lower().capitalize()}")
+    time.sleep(pause_value)
     print(f"The computer throws {competition.lower().capitalize()}")
+    time.sleep(pause_value)
     # evaluate choices and print corresponding message
     if result == 0:
         print("The computer wins, so sorry for your loss")
@@ -41,6 +46,7 @@ while check:
         print("You won! Congratulations!")
     # check if the user wants to play again
     # using .upper so that the choice isn't case sensitive
+    time.sleep(pause_value)
     play_again = input("Play again?(Y/N)\n").upper()
     continue_check = True
     if play_again == "Y" or play_again == "N":
@@ -57,5 +63,6 @@ while check:
     elif play_again == "N":
         check = False
 # print thank you message and win count
+time.sleep(pause_value)
 print(f"You won a total of {win_count} times!\n\
 Thank you for playing!")
